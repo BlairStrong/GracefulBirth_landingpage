@@ -1,0 +1,8 @@
+Colors in Palette
+Color 	Hex 	RGB
+	#fddae2 	(253,218,226)
+	#fbccda 	(251,204,218)
+	#e1d0e1 	(225,208,225)
+	#c5d5ed 	(197,213,237)
+	#d1e1ef 	(209,225,239)
+	#ffffff 	(255,255,255)
