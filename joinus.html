@@ -166,16 +166,17 @@
         >
           <!-- Old price -->
           <h3 class="tw-mt-1">
-            <span class="tw-text-2xl tw-font-semibold tw-text-red-500"
+            <span
+              class="tw-text-2xl tw-font-semibold tw-text-gray-strikethrough"
               >$80</span
             >
-            <span class="tw-text-xl tw-text-red-400"> / life</span>
+            <span class="tw-text-xl tw-text-gray-strikethrough"> / life</span>
           </h3>
 
           <!-- New price -->
           <h3 class="tw-mt-1">
-            <span class="tw-text-5xl tw-font-semibold tw-text-red-500">$0</span>
-            <span class="tw-text-2xl tw-text-red-400"> / life</span>
+            <span class="tw-text-5xl tw-font-semibold tw-text-red">$0</span>
+            <span class="tw-text-2xl tw-text-red"> / life</span>
           </h3>
 
           <!-- Optional subtitle -->
@@ -245,8 +246,12 @@
       visibility: visible;
     }
 
-    /* Popup box */
     .popup-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* horizontal centering */
+      text-align: center; /* text centering */
+
       background: white;
       border-radius: 16px;
       padding: 2rem;
@@ -257,7 +262,6 @@
       position: relative;
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
         0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      transition: transform 0.3s ease;
     }
 
     .popup-overlay.active .popup-content {
