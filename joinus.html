@@ -53,7 +53,7 @@
           <a class="header-links" href="/#pricing"> Pricing </a>
           <!-- <a class="header-links" href=""> Features </a>
                     <a class="header-links" href=""> Blog </a> -->
-          <a class="header-links" href=""> Contact us </a>
+          <!-- <a class="header-links" href=""> Contact us </a> -->
         </div>
         <div
           class="tw-mx-4 tw-flex tw-place-items-center tw-gap-[20px] tw-text-base max-md:tw-w-full max-md:tw-flex-col max-md:tw-place-content-center"
@@ -107,6 +107,7 @@
             <hr />
 
             <form
+            id="waitlist_form"
               class="reveal-up tw-mt-6 tw-flex tw-flex-col sm:tw-flex-row tw-gap-4 tw-items-center"
             >
               <input
@@ -124,10 +125,11 @@
               </button>
             </form>
 
-            <a
-              class="reveal-up tw-mt-4 tw-text-sm tw-text-gray-500"
-              href="index.html"
-            >
+              <a
+                class="reveal-up tw-mt-4 tw-text-sm tw-text-gray-500"
+                href="javascript:void(0)"
+                onclick="forceShowPopup()"
+              >
               Want Free Lifetime acces?
             </a>
           </div>
@@ -215,6 +217,7 @@
           <hr class="tw-my-4 tw-w-full" />
         </div>
             <form
+            id="beta_test_form"
               class=" tw-mt-6 tw-flex tw-flex-col sm:tw-flex-row tw-gap-4 tw-items-center"
             >
               <input
@@ -408,8 +411,22 @@
 
   <script>
     function showPopup() {
+    // Check if the user has already seen it this session
+    const hasSeenPopup = sessionStorage.getItem("hasSeenGracefulBeta");
+
+    if (!hasSeenPopup) {
       document.getElementById("popup-overlay").classList.add("active");
+      // Mark them as having seen it
+      sessionStorage.setItem("hasSeenGracefulBeta", "true");
     }
+  }
+  // This one IGNORES session storage (for the manual link)
+  function forceShowPopup() {
+    document.getElementById("popup-overlay").classList.add("active");
+    // We still set the item so it doesn't pop up AGAIN automatically 
+    // after they've manually opened and closed it.
+    sessionStorage.setItem("hasSeenGracefulBeta", "true");
+  }
 
     function closePopup() {
       document.getElementById("popup-overlay").classList.remove("active");
@@ -423,4 +440,49 @@
       setTimeout(showPopup, 1000);
     });
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+
+  const _supabase = supabase.createClient("https://cjajsllmnlujqjtszbbk.supabase.co", "sb_publishable_1QKL3gwHaGt3GSToM7IaXw_2ugWplmW");
+
+
+  async function handleFormSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const emailInput = form.querySelector("input[type='email']");
+    const submitBtn = form.querySelector("button[type='submit']");
+    const emailValue = emailInput.value;
+
+    // Visual feedback: Disable button while loading
+    if (submitBtn) submitBtn.disabled = true;
+
+    const { error } = await _supabase
+      .from("waitlist")
+      .insert([{ email: emailValue }]);
+
+    if (error) {
+      console.error("Supabase Error:", error);
+      alert("You're already on the list! 💛");
+    } else {
+      alert("You're in! We'll be in touch.");
+      form.reset();
+      // If it's the popup form, close it
+      if (typeof closePopup === "function") closePopup();
+    }
+
+    if (submitBtn) submitBtn.disabled = false;
+  }
+
+  // 3. Attach the listener to BOTH forms when the page loads
+  document.addEventListener("DOMContentLoaded", () => {
+    const formsToTrack = ["waitlist_form", "beta_test_form"];
+    
+    formsToTrack.forEach(id => {
+      const form = document.getElementById(id);
+      if (form) {
+        form.addEventListener("submit", handleFormSubmit);
+      }
+    });
+  });
+</script>
 </html>
