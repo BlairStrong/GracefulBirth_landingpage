@@ -171,6 +171,15 @@ header > .collapsible-header{
     /* background-color: #dedddd; */
 }
 
+/* Blog navigation offset for smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+section[id] {
+    scroll-margin-top: 120px;
+}
+
 @media not all and (min-width: 1024px) {
     header .collapsible-header {
         position: fixed;
