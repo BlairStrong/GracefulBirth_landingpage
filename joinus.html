@@ -441,7 +441,8 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
 
-  const _supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+  const _supabase = supabase.createClient(import.meta.env.supabaseUrl, import.meta.env.supabaseKey);
 
 
   async function handleFormSubmit(e) {
