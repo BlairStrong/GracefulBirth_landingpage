@@ -1,0 +1,63 @@
+<!-- Waitlist form example -->
+<form id="waitlist_form">
+  <input type="email" name="email" placeholder="Enter your email" required />
+  <button type="submit">Join Waitlist</button>
+  <p id="waitlist_feedback" style="color: green; display: none"></p>
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const SUPABASE_URL = "https://cjajsllmnlujqjtszbbk.supabase.co";
+  const SUPABASE_ANON_KEY = "sb_publishable_1QKL3gwHaGt3GSToM7IaXw_2ugWplmW";
+  const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  async function handleFormSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const emailInput = form.querySelector("input[name='email']");
+    const submitBtn = form.querySelector("button[type='submit']");
+    const emailValue = emailInput.value.trim();
+
+    // Frontend validation
+    if (!emailValue || !emailValue.includes("@")) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    if (submitBtn) submitBtn.disabled = true;
+
+    try {
+      const { data, error } = await _supabase
+        .from("waitlist")
+        .insert([{ email: emailValue }]);
+
+      if (error) {
+        // Duplicate email
+        if (error.code === "23505") {
+          alert("You're already on the list! 💛");
+        } else {
+          console.error("Supabase Error:", error);
+          alert("Oops! Something went wrong. Please try again.");
+        }
+      } else {
+        alert("You're in! We'll be in touch. 💛");
+        form.reset();
+        if (typeof closePopup === "function") closePopup();
+      }
+    } catch (err) {
+      console.error("Unexpected error:", err);
+      alert("Oops! Something went wrong. Please try again.");
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
+  }
+
+  // Attach the listener to your form(s)
+  document.addEventListener("DOMContentLoaded", () => {
+    const formsToTrack = ["waitlist_form", "beta_test_form"];
+    formsToTrack.forEach((id) => {
+      const form = document.getElementById(id);
+      if (form) form.addEventListener("submit", handleFormSubmit);
+    });
+  });
+</script>

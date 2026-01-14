@@ -58,19 +58,24 @@ window.addEventListener("resize", responsive)
 
 gsap.registerPlugin(ScrollTrigger)
 
-gsap.to(".reveal-hero-text", {
-    opacity: 0,
-    y: "100%",
-})
+// Check if this is the first load in this session
+const isFirstLoad = !sessionStorage.getItem('animationsPlayed');
 
-gsap.to(".reveal-hero-img", {
-    opacity: 0,
-    y: "100%",
-})
+if (isFirstLoad) {
+    gsap.to(".reveal-hero-text", {
+        opacity: 0,
+        y: "100%",
+    })
 
-gsap.to("#hero-img-bg", {
-    scale: 0
-})
+    gsap.to(".reveal-hero-img", {
+        opacity: 0,
+        y: "100%",
+    })
+
+    gsap.to("#hero-img-bg", {
+        scale: 0
+    })
+}
 
 gsap.to(".reveal-up", {
     opacity: 0,
@@ -79,26 +84,49 @@ gsap.to(".reveal-up", {
 
 
 window.addEventListener("load", () => {
-    // animate from initial position
-    gsap.to(".reveal-hero-text", {
-        opacity: 1,
-        y: "0%",
-        duration: 0.8,
-        // ease: "power3.out",
-        stagger: 0.5, // Delay between each word's reveal,
-        // delay: 3
-    })
+    // Check if this is the first load in this session
+    const isFirstLoad = !sessionStorage.getItem('animationsPlayed');
+    
+    if (isFirstLoad) {
+        // animate from initial position
+        gsap.to(".reveal-hero-text", {
+            opacity: 1,
+            y: "0%",
+            duration: 0.8,
+            // ease: "power3.out",
+            stagger: 0.5, // Delay between each word's reveal,
+            // delay: 3
+        })
 
-    gsap.to(".reveal-hero-img", {
-        opacity: 1,
-        y: "0%",
-    })
+        gsap.to(".reveal-hero-img", {
+            opacity: 1,
+            y: "0%",
+        })
 
-    gsap.to("#hero-img-bg", {
-        scale: 1,
-        duration: 0.8,
-        delay: 0.4
-    })
+        gsap.to("#hero-img-bg", {
+            scale: 1,
+            duration: 0.8,
+            delay: 0.4
+        })
+        
+        // Mark that animations have been played for this session
+        sessionStorage.setItem('animationsPlayed', 'true');
+    } else {
+        // If not first load, immediately set elements to their final state
+        gsap.set(".reveal-hero-text", {
+            opacity: 1,
+            y: "0%"
+        })
+        
+        gsap.set(".reveal-hero-img", {
+            opacity: 1,
+            y: "0%"
+        })
+        
+        gsap.set("#hero-img-bg", {
+            scale: 1
+        })
+    }
     
 })
 
