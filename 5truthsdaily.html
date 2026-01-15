@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GracefulBirth</title>
+    <meta name="description" content="" />
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Title of the project" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://github.com/PaulleDemon" />
+    <!--Replace with the current website url-->
+    <meta property="og:image" content="" />
+
+    <!-- <link rel="stylesheet" href="../../tailwind-css/tailwind-runtime.css"> -->
+    <link rel="stylesheet" href="./css/tailwind-build.css" />
+    <link rel="stylesheet" href="css/index.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+      integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="tw-flex tw-min-h-[100vh] tw-flex-col tw-bg-[#fff]">
+    <header
+      class="tw-absolute tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full tw-bg-opacity-0 tw-px-[5%] max-lg:tw-mr-auto max-lg:tw-px-4 lg:tw-justify-around"
+    >
+      <a class="tw-h-[50px] tw-w-[50px] tw-p-[4px]" href="/">
+        <img
+          src="./assets/gracefulbirthlogo.png"
+          alt="gracefulbirthlogo"
+          class="tw-object tw-h-full tw-w-full"
+        />
+      </a>
+      <div
+        class="collapsible-header animated-collapse max-lg:tw-shadow-md"
+        id="collapsed-header-items"
+      >
+        <div
+          class="tw-flex tw-h-full tw-w-max tw-gap-5 tw-text-base tw-text-black max-lg:tw-mt-[30px] max-lg:tw-flex-col max-lg:tw-place-items-end max-lg:tw-gap-5 lg:tw-mx-auto lg:tw-place-items-center"
+        >
+          <a class="header-links" href="index.html"> About us </a>
+          <a class="header-links" href="/#pricing"> Pricing </a>
+          <!-- <a class="header-links" href=""> Features </a>-->
+          <a class="header-links" href="blog.html"> Blog </a>
+          <!-- <a class="header-links" href=""> Contact us </a> -->
+        </div>
+        <div
+          class="tw-mx-4 tw-flex tw-place-items-center tw-gap-[20px] tw-text-base max-md:tw-w-full max-md:tw-flex-col max-md:tw-place-content-center tw-transition-transform tw-duration-300 hover:tw-scale-105"
+        >
+          <a
+            href="/joinus.html"
+            aria-label="signup"
+            class="tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-rounded-full tw-bg-black tw-p-1 tw-pl-4 tw-text-white"
+          >
+            <span>Download</span>
+            <div
+              class="tw-flex tw-h-[30px] tw-w-[30px] tw-place-content-center tw-place-items-center tw-rounded-full tw-bg-primary tw-font-semibold tw-text-black"
+            >
+              <i class="bi bi-download"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+      <button
+        class="bi bi-list tw-absolute tw-right-3 tw-top-3 tw-z-50 tw-text-3xl tw-text-black lg:tw-hidden"
+        onclick="toggleHeader()"
+        aria-label="menu"
+        id="collapse-btn"
+      ></button>
+    </header>
+    <div
+      class="tw-relative tw-flex tw-w-full tw-max-w-[1200px] tw-mx-auto tw-gap-12 tw-px-6"
+    >
+      <!-- BLOG CONTENT -->
+      <main id="blog-content" class="tw-w-full lg:tw-w-[70%]">
+        <section
+          class="tw-relative tw-flex tw-min-h-[60vh] tw-w-full tw-max-w-[100vw] tw-flex-col tw-place-content-center tw-place-items-center tw-overflow-hidden tw-p-6"
+          id="emotional"
+        >
+          <div
+            class="reveal-up tw-mt-8 tw-flex tw-flex-col tw-place-items-center tw-gap-5"
+          >
+            <div class="tw-mt-5 tw-flex tw-flex-col tw-gap-3 tw-text-center">
+              <h2 class="tw-text-4xl tw-font-semibold"></h2>
+            </div>
+
+            <div
+              class="tw-group tw-relative tw-mb-12 tw-overflow-hidden tw-rounded-3xl tw-shadow-xl tw-max-w-[750px]"
+            >
+              <img
+                src="./assets/images/Yellow Bold Summer Instagram Reel.jpg"
+                alt="Spiritual stillness during pregnancy"
+                class="tw-aspect-[16/9] tw-w-full tw-object-cover tw-transition-transform tw-duration-700 group-hover:tw-scale-105"
+              />
+            </div>
+
+            <div>
+              <div
+                class="reveal-up tw-grid tw-grid-cols-1 tw-gap-12 md:tw-grid-cols-[1fr_250px] tw-max-w-[750px]"
+              >
+                <div class="tw-flex tw-flex-col tw-gap-6">
+                  <p class="tw-text-xl tw-leading-relaxed tw-text-[#595959]">
+                    Pregnancy is more than a physical journey — it is deeply
+                    spiritual. From the moment you see those two lines, your
+                    heart begins to stretch in ways you never imagined. Every
+                    kick, every quiet moment, every prayer whispered over your
+                    growing belly becomes an act of faith. Speaking life over
+                    your baby bump is a powerful way to invite God into your
+                    pregnancy. Scripture reminds us that words carry power, and
+                    when we speak God’s truth aloud, we align our hearts with
+                    His promises. Whether you are in a season of joy, waiting,
+                    uncertainty, or even fear, these five faith-filled reminders
+                    can anchor your heart and cover your baby in prayer. Here
+                    are five things to tell your baby bump daily — not just as
+                    affirmations, but as declarations of faith.
+                  </p>
+                  <h3
+                    class="tw-text-xl tw-leading-relaxed tw-text-[#595959] tw-font-semibold"
+                  >
+                    1. God Formed You With Intention
+                  </h3>
+                  <p class="tw-text-xl tw-leading-relaxed tw-text-[#595959]">
+                    Before the world knew your baby, God already did. Scripture
+                    tells us that God knits each life together with care and
+                    purpose. Your baby is not an accident, not an afterthought,
+                    and not a coincidence. Every detail — from their tiny
+                    heartbeat to the days ordained for them — was lovingly
+                    designed by God. When you speak this truth over your baby
+                    bump, you’re reminding both yourself and your child that
+                    their life has meaning. Even on days when pregnancy feels
+                    overwhelming or uncertain, you can rest in the truth that
+                    God is intentional and faithful. He does nothing without
+                    purpose, and your baby is part of His divine plan.
+                  </p>
+                  <h3
+                    class="tw-text-xl tw-font-semibold tw-leading-relaxed tw-text-[#595959]"
+                  >
+                    2. You Are a Miracle
+                  </h3>
+                  <p class="tw-text-xl tw-leading-relaxed tw-text-[#595959]">
+                    It’s easy to overlook the miraculous in the routine moments
+                    of pregnancy. Doctor appointments, cravings, fatigue — they
+                    can make pregnancy feel ordinary. But growing life is
+                    anything but ordinary. Every breath your baby will take is a
+                    gift from God. Every cell, every movement, every moment of
+                    growth is a quiet miracle happening inside you. Speaking
+                    this truth aloud helps you cultivate gratitude, even when
+                    your body feels tired or stretched. Calling your baby a
+                    miracle doesn’t mean everything will be perfect — it means
+                    acknowledging that God is at work in ways both seen and
+                    unseen. It invites awe into your everyday moments and
+                    reminds you that God’s power is present in this season.
+                  </p>
+                  <h3
+                    class="tw-text-xl tw-font-semibold tw-leading-relaxed tw-text-[#595959]"
+                  >
+                    3. You Are Covered by His Grace
+                  </h3>
+                  <p class="tw-text-xl tw-leading-relaxed tw-text-[#595959]">
+                    Pregnancy can bring pressure — to do everything right, to be
+                    the “perfect” mother, to have all the answers. But grace
+                    covers what we cannot. When you tell your baby bump they are
+                    covered by God’s grace, you’re releasing fear and embracing
+                    trust. God’s grace surrounds your baby, your body, and your
+                    motherhood journey. It fills the gaps where worry tries to
+                    creep in and reminds you that you don’t walk this road
+                    alone. Grace also covers mistakes, unknowns, and learning
+                    curves. God is gentle with you, just as He is gentle with
+                    the life growing inside you.
+                  </p>
+
+                  <h3
+                    class="tw-text-xl tw-font-semibold tw-leading-relaxed tw-text-[#595959]"
+                  >
+                    4. You Are Already So Loved
+                  </h3>
+                  <p class="tw-text-xl tw-leading-relaxed tw-text-[#595959]">
+                    Before your baby ever opens their eyes, they are loved —
+                    deeply, fiercely, and unconditionally. They are loved by
+                    you, by family, and most importantly, by God. Speaking love
+                    over your baby bump builds a foundation of security and
+                    belonging. It reminds your heart that love doesn’t begin at
+                    birth — it begins now. Love grows with every prayer
+                    whispered, every hand placed on your belly, every moment
+                    spent dreaming about the future. God’s love is constant and
+                    unwavering. Long before your baby understands words, they
+                    are already surrounded by love that will carry them through
+                    every season of life.
+                  </p>
+                  <h3
+                    class="tw-text-xl tw-font-semibold tw-leading-relaxed tw-text-[#595959]"
+                  >
+                    5. God Is With You Always
+                  </h3>
+                  <p class="tw-text-xl tw-leading-relaxed tw-text-[#595959]">
+                    One of the greatest comforts of pregnancy is knowing that
+                    God is present — in every appointment, every milestone, and
+                    every unknown. He is with you in moments of joy and in
+                    moments of fear. He is with your baby, even before you meet
+                    them face to face. When you speak this truth aloud, you’re
+                    declaring peace over your pregnancy. God’s presence goes
+                    before you and stays behind you. He walks with you into
+                    motherhood and remains faithful through every stage. No
+                    matter what your journey looks like, you can trust that God
+                    is near. He is guiding, protecting, and holding both you and
+                    your baby in His hands.
+                  </p>
+                  <h3
+                    class="tw-text-xl tw-font-semibold tw-leading-relaxed tw-text-[#595959]"
+                  >
+                    A Daily Invitation to Speak Life
+                  </h3>
+                  <p class="tw-text-xl tw-leading-relaxed tw-text-[#595959]">
+                    Let these five faith-filled truths become part of your daily
+                    rhythm. Speak them in the morning, whisper them before bed,
+                    or pray them during quiet moments throughout the day. Your
+                    words, grounded in God’s promises, create an atmosphere of
+                    peace, faith, and love. Pregnancy is sacred ground. As you
+                    speak life over your baby bump, you’re not just preparing
+                    for birth — you’re nurturing a soul with faith from the very
+                    beginning. 🤍
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer
+      class="tw-mt-auto tw-flex tw-w-full tw-place-content-around tw-gap-3 tw-p-[5%] tw-px-[10%] tw-text-black max-md:tw-flex-col"
+    >
+      <div
+        class="tw-flex tw-h-full tw-w-[250px] tw-flex-col tw-place-items-center tw-gap-6 max-md:tw-w-full"
+      >
+        <img
+          src="./assets/logo.png"
+          alt="logo"
+          srcset=""
+          class="tw-max-w-[120px]"
+        />
+        <div class="tw-mt-3 tw-text-lg tw-font-semibold">Follow us</div>
+        <div class="tw-flex tw-gap-4 tw-text-2xl">
+          <a href="" aria-label="Facebook">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="https://twitter.com/@pauls_freeman" aria-label="Twitter">
+            <i class="bi bi-twitter"></i>
+          </a>
+          <a
+            href="https://instagram.com/"
+            class="tw-h-[40px] tw-w-[40px]"
+            aria-label="Instagram"
+          >
+            <i class="bi bi-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="tw-flex tw-h-full tw-w-[250px] tw-flex-col tw-gap-4">
+        <h2 class="tw-text-3xl max-md:tw-text-xl">Company</h2>
+        <div class="tw-flex tw-flex-col tw-gap-3 max-md:tw-text-sm">
+          <a class="footer-link" href="/#pricing"> Pricing </a>
+          <!-- <a href="" class="footer-link">FAQ</a> -->
+          <!-- <a href="" class="footer-link">Contact Us</a> -->
+        </div>
+      </div>
+
+      <div class="tw-flex tw-h-full tw-w-[250px] tw-flex-col tw-gap-4">
+        <h2 class="tw-text-3xl max-md:tw-text-xl">Resources</h2>
+        <div class="tw-flex tw-flex-col tw-gap-3 max-md:tw-text-sm">
+          <a href="/index.html" class="footer-link">About us</a>
+          <!-- <a href="" class="footer-link">FAQ</a> -->
+          <!-- <a href="" class="footer-link">Contact Us</a> -->
+          <!-- <a href="" class="footer-link">Blogs</a> -->
+          <!-- <a href="" class="footer-link">Privacy policy</a> -->
+        </div>
+      </div>
+    </footer>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"
+      integrity="sha512-B1lby8cGcAU3GR+Fd809/ZxgHbfwJMp0jLTVfHiArTuUt++VqSlJpaJvhNtRf3NERaxDNmmxkdx2o+aHd4bvw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js"
+      integrity="sha512-AY2+JxnBETJ0wcXnLPCcZJIJx0eimyhz3OJ55k2Jx4RtYC+XdIi2VtJQ+tP3BaTst4otlGG1TtPJ9fKrAUnRdQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script src="./index.js"></script>
+
+    <style>
+      .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        text-align: center;
+        opacity: 1;
+        background: #f7f7f7fa;
+        left: auto;
+      }
+      .swiper-pagination-bullet:hover {
+        color: #000;
+        opacity: 1;
+        background: #ede0e0bd;
+      }
+
+      .swiper-pagination-bullet-active {
+        background: #f39696 !important;
+      }
+
+      .swiper {
+        padding: 10px !important;
+      }
+    </style>
+
+    <script>
+      const swiper = new Swiper(".swiper", {
+        direction: "horizontal",
+        loop: true,
+        centeredSlides: true,
+
+        pagination: {
+          el: ".pagination-container",
+          clickable: true,
+          renderBullet: function (index, className) {
+            return `<span class="${className}"></span>`;
+          },
+        },
+        navigation: {
+          nextEl: ".testmonial-next",
+          prevEl: ".testmonial-prev",
+        },
+      });
+    </script>
+  </body>
+</html>
