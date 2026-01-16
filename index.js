@@ -1,160 +1,144 @@
 // initialization
 
-const RESPONSIVE_WIDTH = 1024
+const RESPONSIVE_WIDTH = 1024;
 
-let headerWhiteBg = false
-let isHeaderCollapsed = window.innerWidth < RESPONSIVE_WIDTH
-const collapseBtn = document.getElementById("collapse-btn")
-const collapseHeaderItems = document.getElementById("collapsed-header-items")
-
-
+let headerWhiteBg = false;
+let isHeaderCollapsed = window.innerWidth < RESPONSIVE_WIDTH;
+const collapseBtn = document.getElementById("collapse-btn");
+const collapseHeaderItems = document.getElementById("collapsed-header-items");
 
 function onHeaderClickOutside(e) {
-
-    if (!collapseHeaderItems.contains(e.target)) {
-        toggleHeader()
-    }
-
+  if (!collapseHeaderItems.contains(e.target)) {
+    toggleHeader();
+  }
 }
 
-
 function toggleHeader() {
-    if (isHeaderCollapsed) {
-        // collapseHeaderItems.classList.remove("max-md:tw-opacity-0")
-        collapseHeaderItems.classList.add("opacity-100",)
-        collapseHeaderItems.style.width = "60vw"
-        collapseBtn.classList.remove("bi-list")
-        collapseBtn.classList.add("bi-x", "max-lg:tw-fixed")
-        isHeaderCollapsed = false
+  if (isHeaderCollapsed) {
+    // collapseHeaderItems.classList.remove("max-md:tw-opacity-0")
+    collapseHeaderItems.classList.add("opacity-100");
+    collapseHeaderItems.style.width = "60vw";
+    collapseBtn.classList.remove("bi-list");
+    collapseBtn.classList.add("bi-x", "max-lg:tw-fixed");
+    isHeaderCollapsed = false;
 
-        setTimeout(() => window.addEventListener("click", onHeaderClickOutside), 1)
-
-    } else {
-        collapseHeaderItems.classList.remove("opacity-100")
-        collapseHeaderItems.style.width = "0vw"
-        collapseBtn.classList.remove("bi-x", "max-lg:tw-fixed")
-        collapseBtn.classList.add("bi-list")
-        isHeaderCollapsed = true
-        window.removeEventListener("click", onHeaderClickOutside)
-
-    }
+    setTimeout(() => window.addEventListener("click", onHeaderClickOutside), 1);
+  } else {
+    collapseHeaderItems.classList.remove("opacity-100");
+    collapseHeaderItems.style.width = "0vw";
+    collapseBtn.classList.remove("bi-x", "max-lg:tw-fixed");
+    collapseBtn.classList.add("bi-list");
+    isHeaderCollapsed = true;
+    window.removeEventListener("click", onHeaderClickOutside);
+  }
 }
 
 function responsive() {
-    if (window.innerWidth > RESPONSIVE_WIDTH) {
-        collapseHeaderItems.style.width = ""
-
-    } else {
-        isHeaderCollapsed = true
-    }
+  if (window.innerWidth > RESPONSIVE_WIDTH) {
+    collapseHeaderItems.style.width = "";
+  } else {
+    isHeaderCollapsed = true;
+  }
 }
 
-window.addEventListener("resize", responsive)
-
+window.addEventListener("resize", responsive);
 
 /**
  * Animations
  */
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 // Check if this is the first load in this session
-const isFirstLoad = !sessionStorage.getItem('animationsPlayed');
+const isFirstLoad = !sessionStorage.getItem("animationsPlayed");
 
 if (isFirstLoad) {
-    gsap.to(".reveal-hero-text", {
-        opacity: 0,
-        y: "100%",
-    })
+  gsap.to(".reveal-hero-text", {
+    opacity: 0,
+    y: "100%",
+  });
 
-    gsap.to(".reveal-hero-img", {
-        opacity: 0,
-        y: "100%",
-    })
+  gsap.to(".reveal-hero-img", {
+    opacity: 0,
+    y: "100%",
+  });
 
-    gsap.to("#hero-img-bg", {
-        scale: 0
-    })
+  gsap.to("#hero-img-bg", {
+    scale: 0,
+  });
 }
 
 gsap.to(".reveal-up", {
-    opacity: 0,
-    y: "100%",
-})
-
+  opacity: 0,
+  y: "100%",
+});
 
 window.addEventListener("load", () => {
-    // Check if this is the first load in this session
-    const isFirstLoad = !sessionStorage.getItem('animationsPlayed');
-    
-    if (isFirstLoad) {
-        // animate from initial position
-        gsap.to(".reveal-hero-text", {
-            opacity: 1,
-            y: "0%",
-            duration: 0.8,
-            // ease: "power3.out",
-            stagger: 0.5, // Delay between each word's reveal,
-            // delay: 3
-        })
+  // Check if this is the first load in this session
+  const isFirstLoad = !sessionStorage.getItem("animationsPlayed");
 
-        gsap.to(".reveal-hero-img", {
-            opacity: 1,
-            y: "0%",
-        })
+  if (isFirstLoad) {
+    // animate from initial position
+    gsap.to(".reveal-hero-text", {
+      opacity: 1,
+      y: "0%",
+      duration: 0.8,
+      // ease: "power3.out",
+      stagger: 0.5, // Delay between each word's reveal,
+      // delay: 3
+    });
 
-        gsap.to("#hero-img-bg", {
-            scale: 1,
-            duration: 0.8,
-            delay: 0.4
-        })
-        
-        // Mark that animations have been played for this session
-        sessionStorage.setItem('animationsPlayed', 'true');
-    } else {
-        // If not first load, immediately set elements to their final state
-        gsap.set(".reveal-hero-text", {
-            opacity: 1,
-            y: "0%"
-        })
-        
-        gsap.set(".reveal-hero-img", {
-            opacity: 1,
-            y: "0%"
-        })
-        
-        gsap.set("#hero-img-bg", {
-            scale: 1
-        })
-    }
-    
-})
+    gsap.to(".reveal-hero-img", {
+      opacity: 1,
+      y: "0%",
+    });
 
+    gsap.to("#hero-img-bg", {
+      scale: 1,
+      duration: 0.8,
+      delay: 0.4,
+    });
+
+    // Mark that animations have been played for this session
+    sessionStorage.setItem("animationsPlayed", "true");
+  } else {
+    // If not first load, immediately set elements to their final state
+    gsap.set(".reveal-hero-text", {
+      opacity: 1,
+      y: "0%",
+    });
+
+    gsap.set(".reveal-hero-img", {
+      opacity: 1,
+      y: "0%",
+    });
+
+    gsap.set("#hero-img-bg", {
+      scale: 1,
+    });
+  }
+});
 
 // ------------- reveal section animations ---------------
 
-const sections = gsap.utils.toArray("section")
+const sections = gsap.utils.toArray("section");
 
 sections.forEach((sec) => {
+  const revealUptimeline = gsap.timeline({
+    paused: true,
+    scrollTrigger: {
+      trigger: sec,
+      start: "10% 80%", // top of trigger hits the top of viewport
+      end: "20% 90%",
+      // markers: true,
+      // scrub: 1,
+    },
+  });
 
-    const revealUptimeline = gsap.timeline({paused: true, 
-                                            scrollTrigger: {
-                                                            trigger: sec,
-                                                            start: "10% 80%", // top of trigger hits the top of viewport
-                                                            end: "20% 90%",
-                                                            // markers: true,
-                                                            // scrub: 1,
-                                                        }})
-
-    revealUptimeline.to(sec.querySelectorAll(".reveal-up"), {
-        opacity: 1,
-        duration: 0.8,
-        y: "0%",
-        stagger: 0.2,
-    })
-
-
-})
-
-
-
+  revealUptimeline.to(sec.querySelectorAll(".reveal-up"), {
+    opacity: 1,
+    duration: 0.8,
+    y: "0%",
+    stagger: 0.2,
+  });
+});
