@@ -791,6 +791,10 @@ video {
   width: 50%;
 }
 
+.tw-w-\[65\%\] {
+  width: 65%;
+}
+
 .tw-w-\[80\%\] {
   width: 80%;
 }
@@ -810,6 +814,10 @@ video {
 
 .tw-min-w-\[350px\] {
   min-width: 350px;
+}
+
+.tw-min-w-\[600px\] {
+  min-width: 600px;
 }
 
 .tw-max-w-6xl {
@@ -865,6 +873,10 @@ video {
 
 .tw-flex-wrap {
   flex-wrap: wrap;
+}
+
+.tw-pt-4 {
+  padding-top: 16px;
 }
 
 .tw-place-content-center {
@@ -1106,6 +1118,9 @@ video {
 
 .tw-p-\[5\%\] {
   padding: 5%;
+}
+.tw-p-\[20\%\] {
+  padding: 20%;
 }
 
 .tw-px-3 {
