@@ -63,6 +63,14 @@ if (isFirstLoad) {
     y: "100%",
   });
 
+  // Button (starts shortly after the first word)
+  gsap.to(".reveal-hero-btn", {
+    autoAlpha: 1,
+    y: "0%",
+    duration: 0.8,
+    delay: 0.5, // Appears 0.5s into the page load
+  });
+
   gsap.to("#hero-img-bg", {
     scale: 0,
   });

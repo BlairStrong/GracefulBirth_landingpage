@@ -105,7 +105,29 @@
         ]
       }
     </script>
+    <script>
+      document.documentElement.classList.add("js-enabled");
+      // Check session storage immediately to avoid hiding it if already seen
+      if (sessionStorage.getItem("animationsPlayed")) {
+        document.documentElement.classList.add("animations-done");
+      }
+    </script>
 
+    <style>
+      /* Only hide if JS is enabled and it's the first time visiting this session */
+      .js-enabled:not(.animations-done) .reveal-hero-text,
+      .js-enabled:not(.animations-done) .reveal-hero-img,
+      .js-enabled:not(.animations-done) .reveal-hero-btn,
+      .js-enabled:not(.animations-done) .reveal-up {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .js-enabled:not(.animations-done) #hero-img-bg {
+        /* Corrected line: We MUST keep the -50% translation so it stays centered */
+        transform: translateX(-50%) scale(0);
+      }
+    </style>
     <!-- <link rel="stylesheet" href="../../tailwind-css/tailwind-runtime.css"> -->
     <link rel="stylesheet" href="./css/tailwind-build.css" />
     <link rel="stylesheet" href="css/index.css" />
@@ -196,10 +218,10 @@
             Nurture a sacred bond with your baby from day one.
           </div>
 
-          <div
+          <!-- <div
             class="reveal-hero-text tw-mt-4 tw-flex tw-place-items-center tw-gap-4 tw-overflow-hidden tw-p-2"
           >
-            <!-- <a class="tw-h-[50px] tw-max-w-[150px]" href="joinus.html">
+            <a class="tw-h-[50px] tw-max-w-[150px]" href="joinus.html">
               <img
                 src="./assets/images/brand-logos/app-store-badge.png"
                 alt="Download GracefulBirth on the App Store"
@@ -214,8 +236,8 @@
                 class="tw-h-full tw-w-full"
                 srcset=""
               />
-            </a> -->
-          </div>
+            </a>
+          </div> -->
           <div class="reveal-hero-text tw-mt-4 tw-p-2">
             <a
               href="joinus.html"
